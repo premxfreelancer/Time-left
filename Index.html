@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+
+    input {
+      padding: 10px;
+      margin: 10px;
+    }
+
+    #result {
+      font-size: 20px;
+      margin-top: 20px;
+    }
+  </style>
+  <title>Days Left Calculator</title>
+</head>
+<body>
+
+  <h1>Days Left Calculator</h1>
+
+  <label for="today">Today's Date:</label>
+  <input type="date" id="today">
+
+  <label for="eventDate">Upcoming Event Date:</label>
+  <input type="date" id="eventDate">
+
+  <button onclick="calculateDaysLeft()">Calculate</button>
+
+  <div id="result"></div>
+
+  <script>
+    function calculateDaysLeft() {
+      var todayDate = new Date(document.getElementById('today').value);
+      var eventDate = new Date(document.getElementById('eventDate').value);
+
+      var timeDiff = eventDate - todayDate;
+      var daysLeft = Math.ceil(timeDiff / (1000 * 60 * 60 * 24));
+
+      document.getElementById('result').innerHTML = 'Days Left: ' + daysLeft;
+    }
+  </script>
+
+</body>
+</html>
